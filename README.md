@@ -1,70 +1,53 @@
-# Getting Started with Create React App
+📄 README: React Hooks Usage Summary
+This project demonstrates a Smart Task Manager Dashboard built with React, showcasing the use of core and advanced React Hooks.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+ React Hook Usage Overview
+1. useState
 
-## Available Scripts
+Used to manage the task input field (taskText)
 
-In the project directory, you can run:
+Used to track the global timer (seconds)
 
-### `npm start`
+2. useEffect
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Loads tasks from localStorage when the app mounts
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Saves tasks to localStorage whenever the task list changes
 
-### `npm test`
+Also used to apply and persist theme selection (light/dark mode)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+3. useReducer
 
-### `npm run build`
+Manages the entire task list: adding, toggling, and initializing tasks
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Provides a scalable way to centralize complex task-related logic
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+4. useRef
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Automatically focuses the input field when the component mounts
 
-### `npm run eject`
+Tracks the timer interval ID without triggering re-renders
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+5. useContext
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Provides global access to task statistics (total, completed, pending) via TaskStatsContext
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Manages theme toggling (light/dark) using ThemeContext
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+6. useMemo
 
-## Learn More
+Optimizes the task statistics calculation to avoid recalculating on every render
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+7. useCallback
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Ensures stable function references for event handlers like toggleTheme and handleAddTask
 
-### Code Splitting
+8. useLayoutEffect
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Reserved for future layout adjustments like scrolling to the latest task (not currently in use but scaffolded)
 
-### Analyzing the Bundle Size
+8. Custom Hooks
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+useLocalStorage (can be added to abstract localStorage logic)
 
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+usePomodoroTimer (planned for future timer-based focus modes)

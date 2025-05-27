@@ -1,19 +1,17 @@
-import React, { createContext, useContext, useMemo } from 'react';
+import React, { createContext, useContext } from 'react';
 
 const TaskStatsContext = createContext();
 
-export const TaskStatsProvider = ({ tasks, children }) => {
+export function TaskStatsProvider({ tasks, children }) {
     const total = tasks.length;
-    const completed = tasks.filter((task) => task.completed).length;
-    const pending = total - completed;
-
-    const value = useMemo(() => ({ total, completed, pending }), [total, completed, pending]);
+    const completed = tasks.filter(t => t.completed).length;
+    const inProgress = tasks.filter(t => t.started && !t.ended && !t.completed).length;
 
     return (
-        <TaskStatsContext.Provider value={value}>
+        <TaskStatsContext.Provider value={{ total, completed, inProgress }}>
             {children}
         </TaskStatsContext.Provider>
     );
-};
+}
 
 export const useTaskStats = () => useContext(TaskStatsContext);

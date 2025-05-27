@@ -2,7 +2,6 @@ import React, { useReducer, useEffect, useState, useRef, useContext } from 'reac
 import TaskInput from './components/TaskInput';
 import TaskList from './components/TaskList';
 import TaskStats from './components/TaskStats';
-import Timer from './components/Timer';
 import { TaskStatsProvider } from './context/TaskStatsContext';
 import { ThemeProvider, ThemeContext } from './context/ThemeContext';
 
@@ -147,9 +146,9 @@ function App() {
                         </div>
                         {/* Task Summary */}
                         <div className="col-lg-4 mb-4">
-                            <div className="card shadow p-4 h-100">
+                            <div className="card shadow p-4 h-100" style={{ minWidth: 300, maxWidth: 350, margin: '0 auto' }}>
                                 <TaskStats />
-                                <Timer />
+                                {/* <Timer /> */} {/* Removed Task Timer from summary */}
                             </div>
                         </div>
                     </div>
